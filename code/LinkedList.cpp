@@ -8,15 +8,16 @@
 #include <utility>
 
 
-List::List()
-	: first_(NULL)
+List::List() : first_(NULL)
 {
+
 }
 
 
 List::List(const List & other)
 	: first_(clone(other.first_))
 {
+
 }
 
 
@@ -25,6 +26,7 @@ List::~List()
 	while (!empty())
 	{
 		removeFirst();
+		
 	}
 }
 
@@ -52,7 +54,9 @@ bool List::empty() const
 
 void List::insertAsFirst(double x)
 {
+	
 	first_ = new Node(x, first_);
+
 }
 
 
@@ -65,12 +69,42 @@ double List::removeFirst()
 	return item;
 }
 
+int List::size() {
+
+	int index = 0;
+	Node *nextNode = first_;
+	if (!empty()) {
+		while (nextNode != NULL) {
+			nextNode = nextNode->next_;
+			index++;
+		}
+	}
+	return index;
+}
+
+double List::sum() {
+
+	double total = 0;
+
+		if (!empty()) {
+			Node *nextNode = first_;
+
+
+			while (nextNode != NULL)
+			{
+				total = nextNode->entry_ + total;
+				nextNode = nextNode->next_;
+			}
+
+			return total;
+		}
+}
+
 
 void List::print(ostream & outfile) const
 {
 	outfile << "[ ";
-	if (!empty())
-	{
+	if (!empty()) {
 		// The first entry is printed separately because no comma
 		// is needed.
 		outfile << first_->entry_;
