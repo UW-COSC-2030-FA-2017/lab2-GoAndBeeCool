@@ -1,6 +1,6 @@
 // LinkedList.h
 
-// tom bailey   0740  5 oct 2010
+// Gokul Babu
 // Declaration of the List class.
 
 // A List stores and manages a sequence of doubles.
